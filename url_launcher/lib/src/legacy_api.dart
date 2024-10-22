@@ -151,7 +151,7 @@ Future<void> closeWebView() async {
 /// to get the right render view, so this assumes anyone still trying to use
 /// the deprecated API with `statusBarBrightness` is in a single-view scenario.
 /// This allows a best-effort implementation of the deprecated API for as long
-/// as it continues to exist, without depending on deprecated Flutter APIs (and
+/// as it continues to exist, witlegacyhout depending on deprecated Flutter APIs (and
 /// therefore keeping url_launcher forward-compatible with future versions of
 /// Flutter for longer).
 RenderView? _findImplicitRenderView() {
@@ -160,7 +160,5 @@ RenderView? _findImplicitRenderView() {
   if (implicitFlutterView == null) {
     return null;
   }
-  return WidgetsBinding.instance.renderViews
-      .where((RenderView v) => v.flutterView == implicitFlutterView)
-      .firstOrNull;
+  return WidgetsBinding.instance.renderView;
 }

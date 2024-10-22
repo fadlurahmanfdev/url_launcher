@@ -248,8 +248,8 @@ void main() {
           TestWidgetsFlutterBinding.ensureInitialized();
       debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
       final RenderView renderView =
-          RenderView(view: binding.platformDispatcher.implicitView!);
-      binding.addRenderView(renderView);
+          RenderView(view: binding.platformDispatcher.implicitView!, configuration: ViewConfiguration());
+      // binding.addRenderView(renderView);
       renderView.automaticSystemUiAdjustment = true;
       final Future<bool> launchResult =
           launch('http://flutter.dev/', statusBarBrightness: Brightness.dark);
@@ -259,7 +259,7 @@ void main() {
       expect(renderView.automaticSystemUiAdjustment, isFalse);
       await launchResult;
       expect(renderView.automaticSystemUiAdjustment, isTrue);
-      binding.removeRenderView(renderView);
+      // binding.removeRenderView(renderView);
     });
 
     test('sets automaticSystemUiAdjustment to not be null', () async {
@@ -281,8 +281,8 @@ void main() {
           TestWidgetsFlutterBinding.ensureInitialized();
       debugDefaultTargetPlatformOverride = TargetPlatform.android;
       final RenderView renderView =
-          RenderView(view: binding.platformDispatcher.implicitView!);
-      binding.addRenderView(renderView);
+          RenderView(view: binding.platformDispatcher.implicitView!, configuration: ViewConfiguration());
+      // binding.addRenderView(renderView);
       expect(renderView.automaticSystemUiAdjustment, true);
       final Future<bool> launchResult =
           launch('http://flutter.dev/', statusBarBrightness: Brightness.dark);
@@ -292,7 +292,7 @@ void main() {
       expect(renderView.automaticSystemUiAdjustment, true);
       await launchResult;
       expect(renderView.automaticSystemUiAdjustment, true);
-      binding.removeRenderView(renderView);
+      // binding.removeRenderView(renderView);
     });
 
     test('open non-parseable url', () async {
